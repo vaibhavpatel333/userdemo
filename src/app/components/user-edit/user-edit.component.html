@@ -1,0 +1,65 @@
+<div class="user-detail">
+  <mat-card class="example-form">
+    <form class="example-form">
+      <h1>User Details</h1>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>User name</mat-label>
+        <input matInput placeholder="Ex. Abc" type="text" [formControl]="nameFormControl"
+          [errorStateMatcher]="matcher" />
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+          User name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+          placeholder="Ex. pat@example.com" />
+        <mat-error *ngIf="
+            emailFormControl.hasError('email') &&
+            !emailFormControl.hasError('required')
+          ">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Ex. Abc" type="text" [formControl]="addressFormControl"
+          [errorStateMatcher]="matcher" />
+        <mat-error *ngIf="addressFormControl.hasError('required')">
+          Address is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Phone no.</mat-label>
+        <input matInput placeholder="Ex. Abc" type="text" [formControl]="phoneFormControl"
+          [errorStateMatcher]="matcher" />
+        <mat-error *ngIf="phoneFormControl.hasError('required')">
+          Phone number is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Company name</mat-label>
+        <input matInput placeholder="Ex. Abc" type="text" [formControl]="companyFormControl"
+          [errorStateMatcher]="matcher" />
+        <mat-error *ngIf="companyFormControl.hasError('required')">
+          Company name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-card-actions>
+        <button mat-raised-button class="user-details-btn" (click)="onEditClick()" color="primary">Edit</button>
+        <button mat-raised-button class="user-details-btn" (click)="onEditClick()" color="primary">Submit</button>
+      </mat-card-actions>
+
+
+    </form>
+  </mat-card>
+</div>
